@@ -60,3 +60,10 @@
 ; this works!
 (map factorial (range 1 10))
 
+; read a text file, split into lines and print each line (whole file in memory...)
+(require '[clojure.string :as str])
+(defn readafile [file]
+  (doseq [l (str/split (slurp file) #"\n")]
+    (println (str ">>>>> " l))))
+
+(readafile "/etc/passwd")
